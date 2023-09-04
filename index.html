@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birth Day Nona</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600;700&display=swap');
+
+        body {
+            background: #f857a6;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #ff5858, #f857a6);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #ff5858, #f857a6);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            font-family: 'Pacifico', sans-serif;
+        }
+
+        main {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #hearts_container div {
+            position: fixed;
+            top: 0;
+            font-size: 25px;
+            animation-name: fall_hearts;
+            /* animation-duration: 2s; */
+            animation-iteration-count: 1;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fall_hearts {
+            0% {
+                top: 0;
+            }
+
+            100% {
+                transform: translateY(110vh);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="hearts_container">
+
+        </div>
+        <h1>Happy BirthDay Nona</h1>
+    </main>
+    <script>
+        // HEARTS ANIMATION
+
+        let hearts_btn = document.querySelector("#hearts_btn");
+        let hearts_cont = document.querySelector("#hearts_container");
+        let rand_num = Math.round(Math.random() * 100);
+        let heart_interval = setInterval(() => {
+            let heart = document.createElement("div")
+            heart.innerHTML = "&#129505;";
+            heart.style.left = `${Math.random() * 100}%`;
+            heart.style.animationDuration = `${(Math.random() + 0.5) * 1.5}s`
+            hearts_cont.appendChild(heart);
+            setTimeout(() => {
+                clearInterval(heart_interval);
+            }, 3000)
+        }, rand_num)
+        let secound_interval = setInterval(() => {
+            let heart_2 = document.createElement("div")
+            heart_2.innerHTML = "&#128156;";
+            heart_2.style.left = `${Math.random() * 100}%`;
+            heart_2.style.animationDuration = `${(Math.random() + 0.5) * 1.5}s`
+            hearts_cont.appendChild(heart_2);
+            setTimeout(() => {
+                clearInterval(secound_interval);
+            }, 3000)
+        }, rand_num)
+        let third_interval = setInterval(() => {
+            let heart_3 = document.createElement("div")
+            heart_3.innerHTML = "&#128153;";
+            heart_3.style.left = `${Math.random() * 100}%`;
+            heart_3.style.animationDuration = `${(Math.random() + 0.5) * 1.5}s`
+            hearts_cont.appendChild(heart_3);
+            setTimeout(() => {
+                clearInterval(third_interval);
+            }, 3000)
+        }, rand_num)
+        setTimeout(() => {
+            hearts_cont.innerHTML = "";
+        }, 7000)
+
+    </script>
+</body>
+
+</html>
